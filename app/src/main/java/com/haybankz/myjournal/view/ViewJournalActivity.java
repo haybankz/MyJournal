@@ -1,8 +1,10 @@
 package com.haybankz.myjournal.view;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -106,15 +108,13 @@ public class ViewJournalActivity extends AppCompatActivity {
         switch (id){
             case R.id.action_edit:
 
-                Intent editJournalIntent = new Intent(ViewJournalActivity.this, EditJournalActivity.class);
-                editJournalIntent.putExtra(Constant.JOURNAL_KEY, journal);
-
-                startActivity(editJournalIntent);
-                finish();
+                openEditJournalActivity();
 
                 break;
 
             case R.id.action_delete:
+
+                deleteJournal(journal);
 
                 break;
 
@@ -123,6 +123,40 @@ public class ViewJournalActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openEditJournalActivity() {
+        Intent editJournalIntent = new Intent(ViewJournalActivity.this, EditJournalActivity.class);
+        editJournalIntent.putExtra(Constant.JOURNAL_KEY, journal);
+
+        startActivity(editJournalIntent);
+        finish();
+    }
+
+
+    public void deleteJournal(final JournalModel journal){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Delete")
+                .setMessage("Delete journal?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+
+
+                       viewModel.deleteJournal(journal);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_menu_delete)
+                .show();
     }
 
 }

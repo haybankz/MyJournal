@@ -3,12 +3,14 @@ package com.haybankz.myjournal.view;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -172,6 +174,8 @@ public class MainActivity extends AppCompatActivity implements OnFirebaseDataCha
 
             @Override
             public void onLongClick(View view, int position) {
+                JournalModel journal = adapter.getItem(position);
+                deleteJournal(journal);
 
             }
         }));
@@ -252,5 +256,30 @@ public class MainActivity extends AppCompatActivity implements OnFirebaseDataCha
 
         // true if there is network and its connected
         return networkInfo != null && networkInfo.isConnected();
+    }
+
+    public void deleteJournal(final JournalModel journal){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Delete")
+                .setMessage("Delete journal?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+
+
+                        viewModel.deleteJournal(journal);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_menu_delete)
+                .show();
     }
 }

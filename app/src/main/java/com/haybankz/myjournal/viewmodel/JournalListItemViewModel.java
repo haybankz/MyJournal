@@ -70,6 +70,11 @@ public class JournalListItemViewModel extends AndroidViewModel {
 
     }
 
+    public void deleteJournal(JournalModel journal){
+
+        database.child(journal.getKey()).removeValue();
+
+    }
 
 
 
