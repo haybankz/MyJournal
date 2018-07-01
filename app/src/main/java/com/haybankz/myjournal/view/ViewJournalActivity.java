@@ -2,19 +2,16 @@ package com.haybankz.myjournal.view;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.haybankz.myjournal.Constant;
 import com.haybankz.myjournal.R;
 import com.haybankz.myjournal.data.DateConverter;
 import com.haybankz.myjournal.model.JournalModel;
-import com.haybankz.myjournal.viewmodel.EditJournalViewModel;
-import com.haybankz.myjournal.viewmodel.JournalListItemViewModel;
 import com.haybankz.myjournal.viewmodel.ViewJournalViewModel;
 
 import butterknife.BindView;
@@ -84,7 +81,6 @@ public class ViewJournalActivity extends AppCompatActivity {
 
     public void setupUi(JournalModel journal){
         assert journal != null;
-//        viewModel.setJournal(journal);
         titleTextView.setText(journal.getTitle());
         dateTextView.setText(DateConverter.getDateString(journal.getCreatedOn()));
         contentTextView.setText(journal.getContent());

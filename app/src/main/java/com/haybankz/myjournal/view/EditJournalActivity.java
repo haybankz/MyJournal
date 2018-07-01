@@ -1,22 +1,16 @@
 package com.haybankz.myjournal.view;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.haybankz.myjournal.Constant;
 import com.haybankz.myjournal.R;
-import com.haybankz.myjournal.data.DateConverter;
 import com.haybankz.myjournal.model.JournalModel;
 import com.haybankz.myjournal.viewmodel.EditJournalViewModel;
-
 
 import java.util.Calendar;
 import java.util.Date;

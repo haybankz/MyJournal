@@ -1,11 +1,9 @@
 package com.haybankz.myjournal.viewmodel;
 
-import android.app.Activity;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,11 +30,6 @@ public class LoginViewModel extends AndroidViewModel {
     public LoginViewModel(@NonNull Application application) {
         super(application);
 
-//        mGoogleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestEmail()
-//                .build();
-
-//        mGoogleSignInClient = GoogleSignIn.getClient(this.getApplication(), mGoogleSignInOptions);
         mGoogleSignInClient = GoogleAuthHelper.getClient(this.getApplication());
 
 
@@ -83,39 +76,10 @@ public class LoginViewModel extends AndroidViewModel {
     public GoogleSignInAccount loginUser() {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplication());
         if (account != null) {
-//            Toast.makeText(getApplication(), account.toString() +"....already logged in", Toast.LENGTH_SHORT).show();
             return account;
         }
         return null;
     }
-
-
-
-//    private FirebaseUser firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-//        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-//
-//        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-//        mAuth.signInWithCredential(credential)
-//                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "signInWithCredential:success");
-//                            Toast.makeText(getApplication(), "signInWithCredential:success", Toast.LENGTH_SHORT).show();
-//                            user = mAuth.getCurrentUser();
-//
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-//                            Toast.makeText(getApplication(), "signInWithCredential:failure", Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                        // ...
-//                    }
-//                });
-//        return user;
-//    }
 
 
 }

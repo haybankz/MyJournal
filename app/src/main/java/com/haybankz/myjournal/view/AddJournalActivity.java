@@ -1,14 +1,12 @@
 package com.haybankz.myjournal.view;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.haybankz.myjournal.Constant;
 import com.haybankz.myjournal.R;
 import com.haybankz.myjournal.model.JournalModel;
 import com.haybankz.myjournal.viewmodel.AddJournalViewModel;
@@ -24,12 +22,6 @@ public class AddJournalActivity extends AppCompatActivity {
     @BindView(R.id.editText_title) EditText titleEt;
 
     @BindView(R.id.editText_content) EditText contentEt;
-
-//    @BindView(R.id.textView_date) TextView dateTv;
-
-//    @BindView(R.id.btn_save) FloatingActionButton saveFab;
-
-//    @BindView(R.id.button_save) Button saveBtn;
 
     private AddJournalViewModel viewModel;
 
@@ -47,53 +39,12 @@ public class AddJournalActivity extends AppCompatActivity {
 
 
 
-//        cal = Calendar.getInstance();
-//        date = cal.getTime();
 
-//        dateTv.setText(String.valueOf(date));
         viewModel = ViewModelProviders.of(this).get(AddJournalViewModel.class);
 
 
 
-//        saveBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String title = titleEt.getText().toString().trim();
-//                String content = contentEt.getText().toString().trim();
-//
-//
-//                cal = Calendar.getInstance();
-//                date = cal.getTime();
-//
-////                dateTv.setText(String.valueOf(date));
-//
-//                viewModel.addJournal(new JournalModel("", title, content,  date.getTime()));
-//
-//                finish();
-//
-//
-//            }
-//        });
 
-//        saveFab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                String title = titleEt.getText().toString().trim();
-//                String content = contentEt.getText().toString().trim();
-//
-//
-//                cal = Calendar.getInstance();
-//                date = cal.getTime();
-//
-////                dateTv.setText(String.valueOf(date));
-//
-//                viewModel.addJournal(new JournalModel("", title, content,  date.getTime()));
-//
-//                finish();
-//
-//            }
-//        });
     }
 
     @Override

@@ -43,4 +43,10 @@ public class ViewJournalViewModel extends AndroidViewModel {
     public void setJournal(JournalModel journal){
         this.journal = journal;
     }
+
+    public void deleteJournal(JournalModel journal){
+
+        database.child(journal.getKey()).removeValue();
+
+    }
 }
