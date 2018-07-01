@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AddJournalActivity">
+
+
+
+    <EditText
+        android:id="@+id/editText_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="@drawable/list_item_background"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:maxLength="100"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/title"/>
+
+    <EditText
+        android:id="@+id/editText_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_item_background"
+        android:layout_below="@id/editText_title"
+        android:layout_alignParentBottom="true"
+        android:padding="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:minLines="3"
+        android:gravity="start"
+        android:maxLength="999999999"
+        android:inputType="textMultiLine"
+        android:hint="@string/content" />
+
+
+
+
+</RelativeLayout>
